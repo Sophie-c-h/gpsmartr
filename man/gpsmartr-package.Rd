@@ -28,6 +28,14 @@ The package includes the following functions, to be run in order:
 Curtis-Ham S., Bernasco, W., Medvedev, O. N., & Polaschek, D. L. L (under review).
 'A new geographic profiling method for mapping and ranking suspects in crime investigations: GP-SMART'.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/Sophie-c-h/gpsmartr}
+  \item Report bugs at \url{https://github.com/Sophie-c-h/gpsmartr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Sophie Curtis-Ham \email{sc398@students.waikato.ac.nz} (\href{https://orcid.org/0000-0001-8093-4804}{ORCID})
 
