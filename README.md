@@ -7,13 +7,13 @@
 <!-- badges: end -->
 
 The goal of gpsmartr is to illustrate the geographic profiling method
-described in Curtis-Ham et al (2022): the Geographic Profiling: Suspect
+described in Curtis-Ham et al (2022), the Geographic Profiling: Suspect
 Mapping and Ranking Technique (GP-SMART). The goal of GP-SMART is to
 support geographic profiling in police investigations, by mapping and
 ranking suspects for an input crime, based on the location and
 attributes of the suspects’ activity locations (nodes). Users should
-read that paper before using gpsmartr and its operational use is at the
-user’s own risk. Accuracy outside the test data used to develop the
+read that paper before using gpsmartr. Its operational use is at the
+user’s own risk; accuracy outside the test data used to develop the
 method (as described in the paper) is not guaranteed.
 
 The functions in gpsmartr require the user to have a) an input crime and
@@ -26,8 +26,10 @@ The functions should be run in the order shown in the example below.
 They prepare the input data, run the GP-SMART process, then map the
 output.
 
-Reference Curtis-Ham S., Bernasco, W., Medvedev, O. N., & Polaschek, D.
-L. L (2022). ‘A new geographic profiling method for mapping and ranking
+Reference
+
+Curtis-Ham S., Bernasco, W., Medvedev, O. N., & Polaschek, D. L. L
+(2022). ‘A new geographic profiling method for mapping and ranking
 suspects in crime investigations: GP-SMART’. Journal of Investigative
 Psychology and Offender Profiling.
 
