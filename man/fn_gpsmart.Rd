@@ -73,7 +73,7 @@ fn_gpsmart(
 \references{
 Curtis-Ham S., Bernasco, W., Medvedev, O. N., & Polaschek, D. L. L (2022).
 'A new geographic profiling method for mapping and ranking suspects in crime investigations: GP-SMART'.
-Journal of Investigative Psychology and Offender Profiling.
+Journal of Investigative Psychology and Offender Profiling. https://doi.org/10.1002/jip.1585
 }
 \seealso{
 \itemize{

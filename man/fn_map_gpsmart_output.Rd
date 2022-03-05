@@ -58,12 +58,11 @@ gpsmart_output <- fn_gpsmart(
   input_crime = fn_prepare_input_crime(example_input_crime_raw),
   input_suspects = fn_prepare_suspect_data(example_input_suspects_raw),
   search_radius = 10,
-  return_node_predictions = FALSE
+  return_node_predictions = TRUE
 )
 fn_map_gpsmart_output(
   gpsmart_output,
-  coordinate_system = 2193,
-  search_radius = 10
+  coordinate_system = 2193
 )
 }
 
