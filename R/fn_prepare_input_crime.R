@@ -116,7 +116,12 @@ fn_prepare_input_crime <- function(input_crime_raw) {
       spring = ifelse(lubridate::month(.data$temp_date_time_random) %in% c(9, 10, 11), 1, 0),
       summer = ifelse(lubridate::month(.data$temp_date_time_random) %in% c(12, 1, 2), 1, 0),
       autumn = ifelse(lubridate::month(.data$temp_date_time_random) %in% c(3, 4, 5), 1, 0),
-      winter = ifelse(lubridate::month(.data$temp_date_time_random) %in% c(6, 7, 8), 1, 0)
+      winter = ifelse(lubridate::month(.data$temp_date_time_random) %in% c(6, 7, 8), 1, 0),
+
+      # ensure that the input dates are in date format and timezone consistent across all inputs and outputs (lubridate default timezone)
+      start_date = lubridate::ymd(as.character(.data$start_date)),
+      end_date = lubridate::ymd(as.character(.data$end_date))
+
     ) %>%
     # remove temprary variables
     dplyr::select(-dplyr::contains("temp"))

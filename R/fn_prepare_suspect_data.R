@@ -100,7 +100,7 @@ fn_prepare_suspect_data <- function(input_suspects_raw) {
       temp_event_start_date_time = lubridate::ymd_hms(ifelse(.data$node_category == "event",
         paste(
           as.character(.data$event_start_date),
-          .data$temp_event_start_time # as.character(hms::as_hms(.data$event_start_time))
+          .data$temp_event_start_time
         ),
         NA
       )),
@@ -144,14 +144,14 @@ fn_prepare_suspect_data <- function(input_suspects_raw) {
             ifelse(.data$temp_hour %in% c(7:18), "daytime", ifelse(.data$temp_hour %in% c(19:22), "evening", "night"))
           )
         )
-      )),
+      ), levels = c("daytime", "evening", "night", "all" )),
 
       # calculate weekpart from random day of event nodes, fixed assumptions for span nodes
       weekpart = factor(ifelse(.data$node_type %in% c("work", "school"), "weekday",
         ifelse(.data$node_category == "span", "both",
           ifelse(.data$temp_day >= 0 & .data$temp_day <= 4, "weekday", "weekend")
         )
-      )),
+      ), levels = c("weekday", "weekend", "both")),
 
       # calculate season variables from random date of event nodes and span of span node
       spring = ifelse(.data$node_category == "event" & .data$temp_event_month %in% c("09", "10", "11"), 1,
@@ -181,7 +181,21 @@ fn_prepare_suspect_data <- function(input_suspects_raw) {
             ifelse(.data$node_category == "span" & stringr::str_detect(.data$temp_span_months, rebus::or("6", "7", "8")), 1, 0)
           )
         )
-      )
+      ),
+
+      # ensure that the input dates are in date format and timezone consistent across all inputs and outputs (lubridate default timezone)
+      span_start_date <- lubridate::ymd(ifelse(.data$node_category == "span",
+                                               as.character(.data$span_start_date),
+                                               NA)),
+      span_end_date <- lubridate::ymd(ifelse(.data$node_category == "span",
+                                             as.character(.data$span_end_date),
+                                             NA)),
+      event_start_date <- lubridate::ymd(ifelse(.data$node_category == "event",
+                                                as.character(.data$event_start_date),
+                                                NA)),
+      event_end_date <- lubridate::ymd(ifelse(.data$node_category == "event",
+                                              as.character(.data$event_end_date),
+                                              NA))
     ) %>%
     dplyr::ungroup() %>%
     # remove temprary variables
